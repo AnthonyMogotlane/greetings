@@ -100,3 +100,20 @@ img {
 .greet-btn:active {
     background: #000;
 }
+/*----------------------------------------------------------*/
+/* lower main section styles */
+.lower-container {
+    margin-top: 1.2em;
+}
+.lower-content {
+    position: relative;
+   
+}
+.lower-content img {
+    position: absolute;
+    z-index: -1;
+}
+.lower-content h2 {
+   color: #fff;
+   
+}
