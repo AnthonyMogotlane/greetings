@@ -17,17 +17,45 @@
 <body>
     <div class="container header-container">
         <div class="row">
-            <div class="col-12-sm col-6 header-content flex justify-center align-center">
+            <div class="col-12-sm col-6 header-content column flex justify-center align-center">
                 <img src="img/header_day.png" alt="paint">
                 <h2>Greetings</h2>
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container upper-container">
         <div class="row">
-            <div class="col-12-sm">
-                
+            <div class="col-12-sm upper-content flex column justify-center align-center">
+               <!-- <div class="upper-one">
+                   <img src="img/header_day.png" alt="paint">
+               </div> -->
+               <div class="upper-two">
+                <div class="input-div">
+                  
+                    <input type="text" class="input-field" placeholder="Name">
+                    <span class="greet-counter">20</span>
+                </div>
+                <div class="radio-buttons flex column align-center">
+                    <div class="english">
+                        <input type="radio" name="language" id="english" class="radio-btn" value="english"> 
+                        <label class="radio-label" for="english">English</label>
+                    </div>
+                    <div class="sepedi">
+                        <input type="radio" name="language" id="sepedi" class="radio-btn" value="sepedi">
+                    
+                        <label class="radio-label" for="sepedi">Sepedi</label>
+                    </div>
+                    <div class="isixhosa">
+                        <input type="radio" name="language" id="isixhosa" class="radio-btn" value="isixhosa">
+                    
+                        <label class="radio-label" for="isixhosa">isiXhosa</label>
+                    </div>
+                </div>
+                <div class="submit-btn center">
+                    <button class="greet-btn">Greet me</button>
+                </div>
+               </div>
             </div>
         </div>
     </div>
