@@ -1,0 +1,56 @@
+/*Some flex setup*/
+.flex {
+    display: flex;
+}
+/*--justify content--*/
+.justify-start {
+    justify-content: start;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-end {
+    justify-content: end;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+/*--justify self--*/
+.justify-self-start {
+    justify-content: flex-start;
+}
+
+.justify-self-end {
+    justify-content: flex-end;
+}
+
+/*--align items--*/
+.align-start {
+    align-items: start;
+}
+.align-center {
+    align-items: center;
+}
+.align-end {
+    align-items: end;
+}
+
+/*--align self--*/
+.align-self-start {
+    align-self: flex-start;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+/*--flex directions--*/
+.column {
+    flex-direction: column;
+}

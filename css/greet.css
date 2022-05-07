@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+/* default style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+
+/* header section */
+.header-container {
+    margin-top: 5em;
+}
+.header-content {
+    position: relative;
+}
+
+.header-content img {
+    position: absolute;
+    z-index: -1;
+}
+
+.header-content h2 {
+    color: #fff;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 3px;
+}
+
+/* radio buttons */
