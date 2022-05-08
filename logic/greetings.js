@@ -66,16 +66,3 @@ const greetings = () => {
         getCounter,
     }
 }
-
-let person = greetings();
-
-person.setFirstName("Unalo");
-person.setLanguage("isixhosa");
-
-person.setCounter();
-
-person.setFirstName("Anthony");
-person.setLanguage("isixhosa");
-
-person.setCounter();
-console.log(person.getCounter());
