@@ -6,7 +6,8 @@ const greetings = () => {
     const setFirstName = firstName => inputName = firstName;
     //validate the name 
     const validateName = () => {
-        if (/\d/.test(inputName)) return "invalid input! Enter a valid name";
+        if(inputName.length === 0) return "Enter your name";
+        if (/\s|\W|\d/.test(inputName)) return "invalid input! Enter a valid name";
         if (/^[A-Z]+/.test(inputName)) return inputName;
         if (/[a-z]/.test(inputName)) return "Name should start with a capital letter";
     }
@@ -45,7 +46,8 @@ const greetings = () => {
     const getGreetingMsg = () => setGreetingMsg();
     //set counter
     const setCounter = () => {
-        return (getGreetingMsg() === correctMsg()) ? greetingCount++ : greetingCount;
+        (getGreetingMsg() === correctMsg()) ? greetingCount++ : greetingCount;
+        return greetingCount;
     }
     //get greeting count
     const getCounter = () => setCounter();
