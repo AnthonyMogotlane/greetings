@@ -1,4 +1,7 @@
+/* fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 /* default style */
 * {
     margin: 0;
@@ -15,61 +18,53 @@ img {
 }
 
 /* header section */
-.header-container {
-    margin-top: 5em;
-}
 .header-content {
-    position: relative;
-}
-
-.header-content img {
-    position: absolute;
-    z-index: -1;
+    background: url(../img/header_day.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 7em;
 }
 
 .header-content h2 {
     color: #fff;
     font-family: 'Bangers', cursive;
+    /* font-family: 'Permanent Marker', cursive; */
     letter-spacing: 3px;
 }
 
 /* upper main section style */
-.upper-container{
-    margin-top: 5em;
-}
-
 .upper-content {
-    /* position: relative; */
-    background: #222;
+    background: url(../img/upper_day.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     padding: 1em;
+    height: 18em;
 }
 
-/* upper content one style */
-/* .upper-one {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-} */
-
-/* .upper-one img {
-    height: 20em;
-    object-fit: cover;
-} */
+/*upper content one style - removed*/ 
 
 /* upper content two style */
 .upper-two {
-    
-    z-index: 2;
+    z-index: 2; 
 }
 
 .input-div {
     margin-bottom: 1em;
 }
 
+.warning-msg {
+    color:  red;
+}
+
 .input-field {
     height: 2.5em;
     width: 19em;
+    padding: 3px;
+    font-weight: 700;
 }
+
 .greet-counter {
     color: #000;
     background: #fff;
@@ -100,25 +95,28 @@ img {
     font-family: 'Bangers', cursive;
     letter-spacing: 1px;
 }
+
 .greet-btn:hover {
     background: rgb(60, 207, 60);
 }
+
 .greet-btn:active {
     background: #000;
 }
+
 /*----------------------------------------------------------*/
 /* lower main section styles */
-.lower-container {
-    margin-top: 1.2em;
-}
 .lower-content {
-    position: relative;
+    background: url(../img/greet_msg_night.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 7em;
 }
-.lower-content img {
-    position: absolute;
-    z-index: -1;
-}
+
 .lower-content h2 {
-   color: #fff;
-   
+    color: #fff;
 }
+
+
+
