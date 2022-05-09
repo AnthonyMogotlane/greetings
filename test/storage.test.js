@@ -1,20 +1,18 @@
 describe("The storage function", () => {
-    it("should return the stored name, after a name has been entered", () => {
-        localStorage.clear();
+    it("Should return a list of greeted names", () => {
         let storedNames = storage();
 
-        storedNames.setStorage("names","Anthony");
-        assert.equal(storedNames.getStorage(), "Anthony");
+        storedNames.setData("local", [ "Cara", "Kamva", "Unalo", "Anthony"]);
+
+        assert.deepEqual(storedNames.getData("local"), [ "Cara", "Kamva", "Unalo", "Anthony"]);
     })
-    
-    it("should return an array of two names, when two names have been entered", () => {
-        localStorage.clear();
+
+    it("Should return the total count of the names that have been greeted", () => {
+        
         let storedNames = storage();
 
+        storedNames.setData("count", 2);
 
-        storedNames.setStorage("test","Anthony");
-        storedNames.setStorage("test","Lebo");
-
-        assert.equal(storedNames.getStorage(), ["Anthony", "Lebo"]);
+        assert.equal(storedNames.getData("count"), 2);
     })
 })
