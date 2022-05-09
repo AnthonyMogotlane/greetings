@@ -90,12 +90,8 @@ describe("The greetings function", () => {
             counter.setFirstName("Naledi");
             counter.setLanguage("isixhosa");
 
-            counter.setCounter();
+            counter.setCounter()
 
-            counter.setFirstName("Lebo");
-            counter.setLanguage("sepedi");
-
-            counter.setCounter();
 
             assert.equal(counter.getCounter() , 2);
         })
