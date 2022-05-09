@@ -1,7 +1,7 @@
 //reference for input field
 const inputField = document.querySelector(".input-field");
 //reference for the counter
-const counterNum = document.querySelector(".greet-counter");
+const counterNum = document.querySelector(".the-number");
 //reference to warning msg
 const warningMsg = document.querySelector(".warning-msg")
 //reference to radio buttons
@@ -11,11 +11,14 @@ const radioIsixhosa = document.querySelector("#isixhosa");
 //reference for greet me button
 const greetMeBtn = document.querySelector(".greet-btn");
 //reference to display message
-const msg = document.querySelector(".lower-content");
+const msg = document.querySelector(".msg");
 //instance of greetings factory function
 let greeting = greetings();
+//instance of storage factory function
+let namesGreeted = storage();
 
 const displayText = () => {
+    //get the language checked
     let language;
     (radioEnglish.checked) ? language = radioEnglish.value
     :(radioSepedi.checked) ? language = radioSepedi.value
@@ -27,13 +30,12 @@ const displayText = () => {
     //get the checked language
     greeting.setLanguage(language);
 
-    //output the greeting msg with the name
+    //output the greeting msg with the name, and if the is an error display error message
     if(greeting.getFirstName() === inputField.value) {
-       
-        msg.innerHTML = `   
-        <img src="img/greet_msg_day.png" alt="">
-        <h2 class="msg">${greeting.getGreetingMsg()}</h2>
-        `;
+        //greet the user with the correct name
+        msg.textContent = greeting.getGreetingMsg();
+        //if name is correct store to local storage 
+        namesGreeted.setStorage("names", inputField.value);
     } else {
         warningMsg.innerHTML = greeting.getGreetingMsg();
         warningMsg.style.color = "red";
@@ -45,8 +47,12 @@ const displayText = () => {
     }
 
     //increment counter
-
     if(inputField.value !== "" ) counterNum.innerHTML = greeting.getCounter();
+    
+
+    //checking if the is a key of names in the storage
+    
+
     //Clearing the input field
     inputField.value = "";
 }
