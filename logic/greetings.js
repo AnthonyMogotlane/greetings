@@ -1,7 +1,8 @@
 const greetings = () => {
+    //variables
     let inputName;
     let inputLanguage;
-    let greetingCount = 0;
+    let namesGreeted = [];
     //set the name
     const setFirstName = firstName => inputName = firstName;
     //validate the name 
@@ -16,23 +17,27 @@ const greetings = () => {
     //set the language to greet the user
     const setLanguage = checkedLanguage => inputLanguage = checkedLanguage;
     //selecting the greeting phrase depending on the checked language
-    const selectGreeting = () => {
-        let typesOfGreetings = {
+    const selectGreetingPhrase = () => {
+        let greetingPhrase = {
             "english": "Hello",
             "sepedi": "Dumela",
             "isixhosa": "Molo"
         }
 
-        for (let greet in typesOfGreetings) {
-            if (greet === inputLanguage) {
-                return typesOfGreetings[greet];
+        if(inputLanguage.length === 0) return "check language";
+
+        let checkedLang;
+        for (let lang in greetingPhrase) {
+            if (lang === inputLanguage) {
+                checkedLang = greetingPhrase[lang];
             }
         }
+        return checkedLang;
     }
     //getting the greeting phrase
-    const getTheGreeting = () => selectGreeting();
+    const getGreetingPhrase = () => selectGreetingPhrase();
     //correct msg
-    const correctMsg = () => `${getTheGreeting()}, ${getFirstName()}`;
+    const correctMsg = () => `${getGreetingPhrase  ()}, ${getFirstName()}`;
     //set the greeting msg
     const setGreetingMsg = () => {
         //return msg or prompt the user
@@ -44,10 +49,18 @@ const greetings = () => {
     }
     //get greeting msg
     const getGreetingMsg = () => setGreetingMsg();
+    //store the greeted name in namesGreeted variable
+    const setGreetedNamesList = () => {
+        if(getGreetingMsg().length > 0 && !namesGreeted.includes(getFirstName())) {
+            namesGreeted.push(getFirstName());
+        }
+    }
+    //get list of greeted names
+    const getGreetedNamesList = () => namesGreeted;
+
     //set counter
     const setCounter = () => {
-        (getGreetingMsg() === correctMsg()) ? greetingCount++ : greetingCount;
-        return greetingCount;
+        return getGreetedNamesList().length;
     }
     //get greeting count
     const getCounter = () => setCounter();
@@ -57,14 +70,31 @@ const greetings = () => {
         validateName,
         getFirstName,
         setLanguage,
-        selectGreeting,
-        selectGreeting,
-        selectGreeting,
-        getTheGreeting,
+        selectGreetingPhrase,
+        getGreetingPhrase  ,
         correctMsg,
         setGreetingMsg,
         getGreetingMsg,
+        setGreetedNamesList,
+        getGreetedNamesList,
         setCounter, 
         getCounter,
     }
 }
+
+let test = greetings();
+
+test.setFirstName("Lebo");
+test.setLanguage("sepedi");
+
+test.setGreetedNamesList();
+
+test.setFirstName("John");
+test.setLanguage("sepedi");
+
+test.setGreetedNamesList();
+
+test.setFirstName("Anthony");
+test.setLanguage("sepedi");
+
+console.log(test.getCounter());
