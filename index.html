@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="css/simple-grid.css">
     <!-- simple flex -->
     <link rel="stylesheet" href="css/simple-flex.css">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
 </head>
 
 <body>
@@ -33,7 +36,9 @@
                    <div class="input-div">  
                     <p class="warning-msg">error</p>
                     <input type="text" class="input-field" placeholder="Name">
-                    <span class="greet-counter">0</span>
+                   
+                    <div class="greet-counter"><i class="fas fa-circle"></i><span class="the-number">0</span></div>
+                    
                     
                 </div>
                 <div class="radio-buttons flex column align-center">
@@ -67,7 +72,8 @@
             </div>
         </div>
     </div>
-
+    
+    <script src="logic/storage.js"></script>
     <script src="logic/greetings.js"></script>
     <script src="js/greet.js"></script>
 </body>
