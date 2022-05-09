@@ -40,7 +40,7 @@ img {
     background-size: contain;
     background-position: center;
     padding: 1em;
-    height: 18em;
+    height: 20em;
 }
 
 /*upper content one style - removed*/ 
@@ -72,8 +72,9 @@ img {
     align-items: center;
     flex-direction: column;
     counter-reset: white;
-    background: red;
-    width: 40px;
+    margin-top: .3em;
+    /* background: red; */
+    /* width: 40px; */
 }
 .greet-counter i {
     color: #fff;
@@ -95,7 +96,7 @@ img {
 }
 
 /* greet button */
-.greet-btn {
+.greet-btn, .reset-btn {
     background: #008000;
     color: #fff;
     border: none;
@@ -104,6 +105,9 @@ img {
     font-size: 1.2em;
     font-family: 'Bangers', cursive;
     letter-spacing: 1px;
+}
+.reset-btn {
+    background: red;
 }
 
 .greet-btn:hover {
