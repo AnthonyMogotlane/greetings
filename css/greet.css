@@ -63,16 +63,26 @@ img {
     width: 19em;
     padding: 3px;
     font-weight: 700;
+    vertical-align: middle;
 }
-
 .greet-counter {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    counter-reset: white;
+    background: red;
+    width: 40px;
+}
+.greet-counter i {
+    color: #fff;
+    vertical-align: middle;
+    font-size: 2.5em;
+}
+.greet-counter span {
+    position: absolute;
     color: #000;
-    background: #fff;
-    border-radius: 50%;
-    height: 500px;
-    font-weight: 500px;
-    padding: 5px;
-    font-weight: 700;
 }
 
 /* radio buttons */
