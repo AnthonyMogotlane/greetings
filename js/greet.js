@@ -79,7 +79,9 @@ greetMeBtn.addEventListener("click", displayText);
 
 //reset counter event listener
 resetBtn.addEventListener("click", () => {
+    //reseting the counter and deleting the names greeted in the program
     greeting.resetGreetedNames()
+
     //removing counter from local storage
     localStorage.clear();
 
