@@ -54,6 +54,13 @@ img {
     margin-bottom: 1em;
 }
 
+.warning-block {
+    color: red;
+    font-size: .9em;
+    font-weight: 400;
+    visibility: hidden;
+}
+
 .warning-msg {
     color:  red;
 }
@@ -84,6 +91,7 @@ img {
 .greet-counter span {
     position: absolute;
     color: #000;
+   font-weight: 700;
 }
 
 /* radio buttons */
@@ -113,8 +121,11 @@ img {
 .greet-btn:hover {
     background: rgb(60, 207, 60);
 }
+.reset-btn:hover {
+    background: rgb(206, 53, 53);
+}
 
-.greet-btn:active {
+.greet-btn:active, .reset-btn:active {
     background: #000;
 }
 
@@ -131,6 +142,7 @@ img {
 .lower-content h2 {
     color: #fff;
 }
+
 
 
 
