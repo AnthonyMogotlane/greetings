@@ -57,7 +57,8 @@ const greetings = () => {
     }
     //get list of greeted names
     const getGreetedNamesList = () => namesGreeted;
-
+    //reset namesGreed
+    const resetGreetedNames = () => namesGreeted = [];
     //set counter
     const setCounter = () => {
         return getGreetedNamesList().length;
@@ -77,6 +78,7 @@ const greetings = () => {
         getGreetingMsg,
         setGreetedNamesList,
         getGreetedNamesList,
+        resetGreetedNames,
         setCounter, 
         getCounter,
     }
