@@ -3,11 +3,10 @@ const inputField = document.querySelector(".input-field");
 //reference for the counter
 const counterNum = document.querySelector(".the-number");
 //reference to warning msg
-const warningMsg = document.querySelector(".warning-msg")
+const warningMsg = document.querySelector(".warning-msg");
+const warningBlock = document.querySelector(".warning-block");
 //reference to radio buttons
-const radioEnglish = document.querySelector("#english");
-const radioSepedi = document.querySelector("#sepedi");
-const radioIsixhosa = document.querySelector("#isixhosa");
+const checkRadioBtn = document.querySelectorAll(".language");
 //reference for greet me button
 const greetMeBtn = document.querySelector(".greet-btn");
 //reference to display message
@@ -17,72 +16,62 @@ const resetBtn = document.querySelector(".reset-btn");
 //instance of greetings factory function
 let greeting = greetings();
 //instance of storage factory function
-let namesGreeted = storage();//REMOVE
+let dataStorage = storage();
 
-//LOCAL STORAGE
-//initiating the local storage for counter
-if(localStorage.getItem("count") === null) {
-    localStorage.setItem("count", counterNum.innerHTML);
-    counterNum.innerHTML = localStorage.getItem("count");
+//initializing counter to last stored value on localStorage
+if(dataStorage.getData("counter") === null) {
+    counterNum.innerHTML = 0;
 } else {
-    counterNum.innerHTML = Number(localStorage.getItem("count"));
-    localStorage.setItem("count", counterNum.innerHTML)
+    counterNum.innerHTML = dataStorage.getData("counter");
 }
-//=================================================================
 
 const displayText = () => {
-    //Checking if the name is there or not
-    let arr = [];
-    if(localStorage.getItem("names") === null) {
-        arr = [];
-    } else {
-        arr = namesGreeted.getStorage("names");
-    }
-    for(let el of arr) {
-        console.log(el);
-    }   
-    
-    //get the language checked - to be moved to factory function
-    let language;
-    (radioEnglish.checked) ? language = radioEnglish.value
-    :(radioSepedi.checked) ? language = radioSepedi.value
-    :(radioIsixhosa.checked) ? language = radioIsixhosa.value
-    :alert("select a language");
-    //======================================================
     //get the input name
     greeting.setFirstName(inputField.value)
-    //get the language checked
+    //get the language checked, if not return error msg
+    let language
+    checkRadioBtn.forEach(lang => {
+        if(lang.checked) {
+           language = lang.value;
+        }
+    })
+    if(language === undefined) return warningFunc(greeting.getGreetingPhrase())
     greeting.setLanguage(language);
+    
 
-    //output the greeting msg with the input name then store the name to local storage, and if the is an error display error message
+    //output the greeting msg with the entered name
+    //store the name/name to local storage
+    //if there is an error display error message
     if(greeting.getFirstName() === inputField.value) {
-        //greet the user with the correct name
+        //display greeting message
         msg.textContent = greeting.getGreetingMsg();
 
-        //if name is correct store to local storage
-        namesGreeted.setStorage("names", inputField.value);//MODIFYY
+        //store name/names to local storage
+        greeting.setGreetedNamesList(); //applies to the counter
+        dataStorage.setData("names", greeting.getGreetedNamesList())
 
         //increment counter if the name is been greeted the first time
-        //counterNum.innerHTML = greeting.getCounter();
-
-        //incrementing count in the local storage
-        counterNum.innerHTML = Number(localStorage.getItem("count")) + 1;
-        localStorage.setItem("count", counterNum.innerHTML)
+        counterNum.innerHTML = greeting.getCounter();
+        dataStorage.setData("counter", greeting.getCounter())
+        
     } else {
-        warningMsg.innerHTML = `<i class="fas fa-exclamation-triangle" style="color: red"></i> ${greeting.getGreetingMsg()}`;
-        //display warning msg for 2 seconds
-        warningMsg.style.display = "block";
-        setTimeout(() => {
-            warningMsg.style.display = "none";
-        }, 2000)
+       warningFunc(greeting.getGreetingMsg());
     }
-
-   
-
-   
 
     //Clearing the input field when greet me button is pressed
     inputField.value = "";
+}
+
+const warningFunc = (warnMsg) => {
+    warningMsg.innerHTML = `${warnMsg}`;
+    
+    //display warning msg for 2 seconds
+    warningMsg.style.visibility = "visible";
+    warningBlock.style.visibility = "visible";
+    setTimeout(() => {
+        warningMsg.style.visibility = "hidden";
+        warningBlock.style.visibility = "hidden";
+    }, 2000)
 }
 
 //greet me event listener
@@ -94,6 +83,6 @@ resetBtn.addEventListener("click", () => {
     //removing counter from local storage
     localStorage.clear();
 
-    //reseting the counter to zero
+    //resetting the counter to zero
     counterNum.innerHTML = 0;
 })
