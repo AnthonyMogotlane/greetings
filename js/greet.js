@@ -79,7 +79,7 @@ greetMeBtn.addEventListener("click", displayText);
 
 //reset counter event listener
 resetBtn.addEventListener("click", () => {
-
+    greeting.resetGreetedNames()
     //removing counter from local storage
     localStorage.clear();
 
