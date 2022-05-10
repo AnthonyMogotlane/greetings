@@ -24,9 +24,9 @@ const greetings = () => {
             "isixhosa": "Molo"
         }
 
-        if(inputLanguage.length === 0) return "check language";
+        //if(inputLanguage.length === 0) return "check language";
 
-        let checkedLang;
+        let checkedLang = "check language";
         for (let lang in greetingPhrase) {
             if (lang === inputLanguage) {
                 checkedLang = greetingPhrase[lang];
@@ -37,7 +37,7 @@ const greetings = () => {
     //getting the greeting phrase
     const getGreetingPhrase = () => selectGreetingPhrase();
     //correct msg
-    const correctMsg = () => `${getGreetingPhrase  ()}, ${getFirstName()}`;
+    const correctMsg = () => `${getGreetingPhrase()}, ${getFirstName()}`;
     //set the greeting msg
     const setGreetingMsg = () => {
         //return msg or prompt the user
@@ -90,11 +90,11 @@ test.setLanguage("sepedi");
 test.setGreetedNamesList();
 
 test.setFirstName("John");
-test.setLanguage("sepedi");
+test.setLanguage("");
 
 test.setGreetedNamesList();
 
 test.setFirstName("Anthony");
 test.setLanguage("sepedi");
 
-console.log(test.getCounter());
+console.log(test.getGreetingPhrase());
