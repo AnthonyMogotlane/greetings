@@ -1,8 +1,16 @@
 const greetings = () => {
+    let data = storage();
     //variables
     let inputName;
     let inputLanguage;
     let namesGreeted = [];
+
+    if (data.getData("names") === null) {
+        namesGreeted = [];
+    } else {
+        namesGreeted = data.getData("names");
+    }
+    
     //set the name
     const setFirstName = firstName => inputName = firstName;
     //capitalizing the name
