@@ -1,6 +1,7 @@
 /* fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Roboto:wght@300;400&display=swap');
 
 /* default style */
 * {
@@ -11,6 +12,8 @@
 
 body {
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 img {
@@ -23,7 +26,7 @@ img {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 7em;
+    height: 6em;
 }
 
 .header-content h2 {
@@ -83,8 +86,6 @@ img {
     flex-direction: column;
     counter-reset: white;
     margin-top: .3em;
-    /* background: red; */
-    /* width: 40px; */
 }
 .greet-counter i {
     color: #fff;
@@ -94,7 +95,8 @@ img {
 .greet-counter span {
     position: absolute;
     color: #000;
-   font-weight: 700;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 /* radio buttons */
@@ -116,6 +118,7 @@ img {
     font-size: 1.2em;
     font-family: 'Bangers', cursive;
     letter-spacing: 1px;
+    margin: 0 2px;
 }
 .reset-btn {
     background: red;
@@ -134,6 +137,10 @@ img {
 
 /*----------------------------------------------------------*/
 /* lower main section styles */
+.lower-container {
+    visibility: hidden;
+}
+
 .lower-content {
     background: url(../img/greet_msg_night.png);
     background-size: contain;
@@ -144,8 +151,18 @@ img {
 
 .lower-content h2 {
     color: #fff;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 1.2px;
 }
 /*----------------------------------------------------------*/
+/* reset update */
+.greet-counter-two{
+    color: green !important;
+}
+.the-number-one {
+    color: #fff;
+}
+
 /* mode style */
 .sun {
     display: none;
@@ -186,6 +203,25 @@ img {
     background-position: center;
     padding: 1em;
     height: 20em;
+}
+
+/* large screens */ 
+@media screen and (min-width: 960px) {
+    .greet-counter {
+        margin-top: 1em;
+    }
+    .radio-buttons {
+        flex-direction: row !important;
+        justify-content: center;
+        gap: .7em;
+    }
+
+    .english, .sepedi, .isixhosa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
 }
 
 
