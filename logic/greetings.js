@@ -5,12 +5,16 @@ const greetings = () => {
     let namesGreeted = [];
     //set the name
     const setFirstName = firstName => inputName = firstName;
-    //validate the name 
+    //capitalizing the name
+    const capitalize = (thisName) => {
+        return (thisName.toString().charAt(0).toUpperCase() + thisName.toString().slice(1));
+    }
+    //validate the name
     const validateName = () => {
-        if(inputName.length === 0) return "Enter your name";
+        if (inputName.length === 0) return "Enter your name";
         if (/\s|\W|\d/.test(inputName)) return "invalid input! Enter a valid name";
         if (/^[A-Z]+/.test(inputName)) return inputName;
-        if (/[a-z]/.test(inputName)) return "Name should start with a capital letter";
+        if (/[a-z]/.test(inputName)) return capitalize(inputName);
     }
     //get the name or error msg
     const getFirstName = () => validateName();
@@ -23,8 +27,6 @@ const greetings = () => {
             "sepedi": "Dumela",
             "isixhosa": "Molo"
         }
-
-        //if(inputLanguage.length === 0) return "check language";
 
         let checkedLang = "check language";
         for (let lang in greetingPhrase) {
@@ -41,7 +43,7 @@ const greetings = () => {
     //set the greeting msg
     const setGreetingMsg = () => {
         //return msg or prompt the user
-        if(getFirstName() === inputName) {
+        if (getFirstName() === capitalize(inputName)) {
             return correctMsg();
         } else {
             return validateName();
@@ -51,7 +53,7 @@ const greetings = () => {
     const getGreetingMsg = () => setGreetingMsg();
     //store the greeted name in namesGreeted variable
     const setGreetedNamesList = () => {
-        if(getGreetingMsg().length > 0 && !namesGreeted.includes(getFirstName())) {
+        if (getGreetingMsg().length > 0 && !namesGreeted.includes(getFirstName())) {
             namesGreeted.push(getFirstName());
         }
     }
@@ -68,35 +70,19 @@ const greetings = () => {
 
     return {
         setFirstName,
+        capitalize,
         validateName,
         getFirstName,
         setLanguage,
         selectGreetingPhrase,
-        getGreetingPhrase  ,
+        getGreetingPhrase,
         correctMsg,
         setGreetingMsg,
         getGreetingMsg,
         setGreetedNamesList,
         getGreetedNamesList,
         resetGreetedNames,
-        setCounter, 
+        setCounter,
         getCounter,
     }
 }
-
-let test = greetings();
-
-test.setFirstName("Lebo");
-test.setLanguage("sepedi");
-
-test.setGreetedNamesList();
-
-test.setFirstName("John");
-test.setLanguage("");
-
-test.setGreetedNamesList();
-
-test.setFirstName("Anthony");
-test.setLanguage("sepedi");
-
-console.log(test.getGreetingPhrase());
