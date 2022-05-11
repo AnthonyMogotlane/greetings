@@ -42,7 +42,6 @@ const displayText = () => {
     if (language === undefined) return warningFunc(greeting.getGreetingPhrase())
     greeting.setLanguage(language);
 
-
     //output the greeting msg with the entered name
     //store the name/name to local storage
     //if there is an error display error message
