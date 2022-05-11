@@ -10,12 +10,12 @@ describe("The greetings function", () => {
 
         })
 
-        it("should return 'Name should start with a capital letter' if the entered name start with lower case", () => {
+        it("should return the a name starting with a capital letter, followed by lower case characters", () => {
             let person = greetings();
 
             person.setFirstName("unalo");
 
-            assert.equal(person.getFirstName() , "Name should start with a capital letter");
+            assert.equal(person.getFirstName() , "Unalo");
 
         })
 
@@ -100,13 +100,13 @@ describe("The greetings function", () => {
             assert.equal(message.getGreetingMsg() , "invalid input! Enter a valid name");
         })
 
-        it("should return error message prompting the user to start their name with capital letter", () => {
+        it("should greet with a capitalized name if the input name is in lower case, uppercase or mixed cases", () => {
             let message = greetings();
 
-            message.setFirstName('anthony');
+            message.setFirstName("anthony");
             message.setLanguage("english");
 
-            assert.equal(message.getGreetingMsg() , "Name should start with a capital letter");
+            assert.equal(message.getGreetingMsg() , "Hello, Anthony");
         })
     })
 
