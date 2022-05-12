@@ -29,6 +29,7 @@ if (dataStorage.getData("counter") === null) {
     counterNum.innerHTML = dataStorage.getData("counter");
 }
 
+
 const displayText = () => {
     //get the input name
     greeting.setFirstName(inputField.value)
@@ -62,8 +63,22 @@ const displayText = () => {
         }, 3500)
 
         //store name/names to local storage
+        //1 - set list
         greeting.setGreetedNamesList(); //applies to the counter
-        dataStorage.setData("names", greeting.getGreetedNamesList())
+
+        //2 - update program list with localStorage list
+        let listOfNames = [];
+        if (dataStorage.getData("names") === null) {
+            listOfNames = greeting.getGreetedNamesList();
+        } else {
+            if(greeting.getGreetedNamesList().length === 1 && !dataStorage.getData("names").includes(greeting.getFirstName())) {
+                greeting.namesGreeted.unshift(...dataStorage.getData("names"));
+            }
+            listOfNames = greeting.getGreetedNamesList();           
+        }
+        //3 - add to local storage
+        dataStorage.setData("names", listOfNames)
+        // console.log(listOfNames);
 
         //increment counter if the name is been greeted the first time
         counterNum.innerHTML = greeting.getCounter();

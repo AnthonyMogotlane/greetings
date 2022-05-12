@@ -1,28 +1,21 @@
 const greetings = () => {
-    let data = storage();
     //variables
     let inputName;
     let inputLanguage;
     let namesGreeted = [];
 
-    if (data.getData("names") === null) {
-        namesGreeted = [];
-    } else {
-        namesGreeted = data.getData("names");
-    }
-    
     //set the name
     const setFirstName = firstName => inputName = firstName;
     //capitalizing the name
     const capitalize = (thisName) => {
-        return (thisName.toString().charAt(0).toUpperCase() + thisName.toString().slice(1));
+        return (thisName.toString().charAt(0).toUpperCase() + thisName.toString().slice(1).toLowerCase());
     }
     //validate the name
     const validateName = () => {
-        if (inputName.length === 0) return "Enter your name";
-        if (/\s|\W|\d/.test(inputName)) return "invalid input! Enter a valid name";
-        if (/^[A-Z]+/.test(inputName)) return inputName;
-        if (/[a-z]/.test(inputName)) return capitalize(inputName);
+        if (capitalize(inputName).length === 0) return "Enter your name";
+        if (/\s|\W|\d/.test(capitalize(inputName))) return "invalid input! Enter a valid name";
+        if (/^[A-Z]+/.test(capitalize(inputName))) return capitalize(inputName);
+        if (/[a-z]/.test(capitalize(inputName))) return capitalize(capitalize(inputName));
     }
     //get the name or error msg
     const getFirstName = () => validateName();
@@ -92,5 +85,6 @@ const greetings = () => {
         resetGreetedNames,
         setCounter,
         getCounter,
+        namesGreeted
     }
 }
